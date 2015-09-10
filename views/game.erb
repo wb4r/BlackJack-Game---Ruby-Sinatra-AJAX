@@ -1,0 +1,85 @@
+<div id="game">
+  <link rel="stylesheet" href="/application.css">
+  <!-- ERROR/SUCCESS MESSAGES IMPORT -->
+  <%if @error %>
+      <div class="alert alert-error"><%=@error%></div>
+    <% end %>
+    <%if @success %>
+      <div class="alert alert-success"><%=@success%></div>
+    <% end %>
+
+  <h1>Blackjack!</h1>
+    <h4 class="h4-username"> Player: <%= session[:player_name] %> - Bet amount: <%= session[:bet_amount] %>$ </h4>
+    <br>
+
+    <!-- PLAYERS HAND-->
+    <div class="well">
+      <h4><%= session[:player_name] %>'s hand</h4>
+        <ul class="thumbnails">
+          <% session[:player_hand].each do |card| %>
+          <li class="span4 card">
+            <div class="thumbnail">
+              <%= card_image(card) %> 
+              <% end %>
+            </div>
+          </li>
+        </ul> <!-- end of ul 'thumbnails' -->
+      <p> TOTAL: <%= calculate_total(session[:player_hand]) %> </p>
+    </div> <!-- end of 'well' -->
+
+    <!-- DELAERS HAND-->
+    <div class="well">
+      <h4> Dealer's hand</h4>
+        <ul class="thumbnails">
+          <% if @show_dealer_data %>
+            <% session[:dealer_hand].each do |card| %>
+            <li class="span4 card">
+              <div class="thumbnail">
+                <%= card_image(card) %> 
+              <% end %>
+              </div>
+            </li>
+          <%else%>
+            <li class="span4 card">
+              <div class="thumbnail">
+                <%= card_image(session[:dealer_hand][0]) %>
+              </div>
+            </li>
+            <li class="span4 card">
+              <div class="thumbnail">           
+                <img class='img-thumbnail' src='/images/cards/cover.jpg'>
+              </div>
+            </li>
+          <%end%>
+        </ul> <!-- end of ul 'thumbnails' -->
+      
+      <% if @show_dealer_data %>
+        <p> TOTAL: <%= session[:dealer_total] %></p>  
+      <%end%>
+    </div> <!-- end of 'well' -->
+
+    <br>
+
+    <p>
+      What would <%= session[:player_name] %> like to do?
+      <%= session[:player_name] %> has <%= calculate_total(session[:player_hand]) %>
+
+      <% if @show_hit_or_stay_buttons %>
+        <form id="hit_form" action="/hit" method='post' class="form-inline">
+          <input type="submit" class="btn btn-danger btn-mine hit" value="Hit" />
+        </form>
+        <form id="stay_form" action="/stay" method='post' class="form-inline">
+          <input type="submit" class="btn btn-success btn-mine stay" value="Stay" />
+        </form>
+      <% end %>
+    </p>
+
+    <!-- REPLAY BUTTON -->
+    <% if @show_replay_btn %>
+      <h5></h5>
+      <form id="replay" action="/bet" method="post" class="form-inline">
+        <button id="repbtn" class="btn btn-primary replay" name="replay">Replay</button>
+      </form>
+    <%end%>
+
+</div> <!-- end of div #game -->

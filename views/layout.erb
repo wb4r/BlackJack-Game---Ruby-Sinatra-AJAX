@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blackjack!</title>
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/application.css">
+    <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="/vendor/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/js.js"></script>
+  </head>
+  <body style="padding-top: 30px;">
+    <div class="container"> <!-- container 1 -->
+      <div class="mein-cont">
+        <div class="engulfing">
+            <div class="navbar navbar-fixed-top">
+              <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                      <li><a href="/">Start Over</a></li>
+                    </ul>
+                </div> <!-- end of container -->
+              </div> <!-- end of navbar-inner -->
+            </div> <!-- end of navbar navbar-fixed-top -->
+            <!-- IF STATEMENTS -->
+              <%if @error %>
+                <div class="alert alert-error"><%=@error%></div>
+              <% end %>
+              <%if @success %>
+                <div class="alert alert-success"><%=@success%></div>
+              <% end %>
+                <%= yield %>
+            <!-- END OF IF STATEMENTS -->
+        </div> <!-- end of engulfing -->
+      </div> <!-- end of mein-cont -->
+    </div><!-- end of container 1 -->
+  <!--<script type="text/javascript" src="/vendor/jquery/jquery-2.1.4.min.js"></script> -->
+  
+  </body>
+</html>

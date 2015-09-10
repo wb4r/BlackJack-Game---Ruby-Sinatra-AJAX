@@ -1,0 +1,53 @@
+body {
+	background-image: url('/images/background-2.jpg');
+}
+.mein-cont {
+	background-color: rgba(78, 78, 78, 0.4);
+	opacity:;
+	padding-left: 50px;
+	padding-top: 15px;
+}
+.engulfing  {
+	padding-top: 100px;
+}
+.card {
+	max-height: 200px;
+	max-width: 100px;
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.well {
+	background-color: #36664e;
+	width: 65%;
+	border: 1px solid black;
+	color: #d01b00;
+	text-shadow: -1px 0 black;
+}
+
+.well p {
+	color: white;
+	font-weight: bold;
+	float: right;
+}
+
+h1 {
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+.h4-username {
+	color: white;
+}
+
+.btn-mine {
+	margin-right: 15px;
+}
+
+.hit, .stay, .replay {
+	margin-bottom: 20px;
+}
+
+.alert {
+	position: fixed;
+	top: 50px;
+	width: 50%;
+}
