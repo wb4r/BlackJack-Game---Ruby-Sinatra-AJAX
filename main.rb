@@ -180,7 +180,7 @@ post '/hit' do
     decrease_money
     @error = "#{session[:player_name]} busted with #{player_total}."    
   end  
-  erb :game#, layout: false
+  erb :game, layout: false
 end
 
 post '/stay' do
@@ -224,5 +224,5 @@ get '/game/comparison' do
     increase_money
     @success = "#{session[:player_name]} won with #{player_total} against the Dealer with #{dealer_total}."
   end
-  erb :game#, layout: false
+  erb :game, layout: false
 end

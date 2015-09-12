@@ -1,7 +1,7 @@
 $(document).ready(function(){
   player_hit();
   player_stay();
-  replay();
+  // replay();
 });
 
 function player_hit() {
